@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "ed7ba8654fc750ac3d069c79ed8b8e59",
+    "packages": [
+        {
+            "name": "lwphp/swo-worker",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../swoWorker",
+                "reference": "e03d98c9aa79b8c18457f1c9d5d69ffdbc1cb5a6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SwoWorker\\": "./src/"
+                },
+                "files": [
+                    "src/Helper/functions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "liwei",
+                    "email": "liweiphp@163.com"
+                }
+            ],
+            "description": "swoole worker",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "lwphp/swo-worker": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
