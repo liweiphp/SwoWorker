@@ -50,7 +50,6 @@ class Route
             $this->flag = $flag;
             require_once $item['path'];
         }
-        p($this->routes, "route");
     }
     /**
      * 添加路由映射
@@ -67,6 +66,7 @@ class Route
                 $this->routes[$this->flag][$method][$uri] = $this->namespace[$this->flag].'\\'.$action;
             }
         }
+        p($this->routes, "启动路由");
     }
 
     public function match($flag, $request)

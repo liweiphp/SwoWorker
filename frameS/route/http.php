@@ -12,4 +12,7 @@ Route::get('/index', function (){
     return $r.'hello1111';
 });
 
+Route::get('/rpc1', "IndexController@rpcClient1");
+Route::get('/rpc2', "IndexController@rpcClient2");
+
 Route::get('test', 'IndexController@index');

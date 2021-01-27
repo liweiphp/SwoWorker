@@ -20,6 +20,5 @@ class EventServiceProvider extends ServiceProvider
         // TODO: Implement boot() method.
         $events = $this->app->make('config')->get('event');
         $this->app->make('event')->registerEvents($events);
-        p($this->app->make('event')->getEvents());
     }
 }

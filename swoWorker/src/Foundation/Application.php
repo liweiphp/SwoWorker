@@ -10,6 +10,7 @@ namespace SwoWorker\Foundation;
 use SwoWorker\Bootstrap\LoadConfigProvider;
 use SwoWorker\Bootstrap\ServiceProvier;
 use SwoWorker\Container\Container;
+use SwoWorker\Rpc\RpcServer;
 use SwoWorker\Server\Http\Server as httpServer;
 use SwoWorker\Support\Log;
 
@@ -48,13 +49,26 @@ class Application extends Container
     {
         Log::p($argv);
 
+        $config = $this->make('config');
         switch ($argv[1]){
             case "start":
+
+                p('start server');
                 self::setInstance($this);
-                $this->server = new httpServer(self::getInstance());
+                p($config->get('server.http.host'), '启动地址');
+                $this->server = new httpServer(self::getInstance(), $config->get('server.http.host'), $config->get('server.http.port'));
+                if ($config->get('server.rpc.enable')) {
+                    p('启动rpc');
+                    (new RpcServer($this, $this->server->getSwooleServer()))->run();
+                }
+                $this->server->start();
+
+                break;
         }
 
-        $this->server->start();
+
+
+
 
     }
 
@@ -83,7 +97,6 @@ class Application extends Container
     public function register($provider)
     {
         if (is_object($provider)){
-            $this->service_providers[] = $provider;
             $provider->register();
             $provider->boot();
         }

@@ -30,8 +30,10 @@ abstract class ServerBase
         'sub' => [],
         'ext' => []
     ];
-    public function __construct(Application $app)
+    public function __construct(Application $app, $host, $port)
     {
+        $this->host = $host;
+        $this->port = $port;
         $this->app = $app;
         $this->initConfig();
         $this->createServer();
@@ -79,6 +81,15 @@ abstract class ServerBase
         $this->app->make('event')->trigger('swoole_stop');
         Log::p($this->host.":".$this->port, "服务关闭");
 
+    }
+
+    /**
+     * 返回swoole server
+     * @return mixed
+     */
+    public function getSwooleServer()
+    {
+        return $this->swooleServer;
     }
 
     /**

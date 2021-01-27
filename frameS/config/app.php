@@ -5,5 +5,6 @@ return [
         app\Providers\RouteServiceProvider::class,
         \SwoWorker\Event\EventServiceProvider::class
 
-    ]
+    ],
+
 ];
