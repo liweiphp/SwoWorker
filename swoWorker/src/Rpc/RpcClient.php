@@ -22,8 +22,10 @@ class RpcClient
             'params' => $params
         ];
         $client = new Client(SWOOLE_SOCK_TCP);
-        $config = app()->make('config')->get('service.'.$this->service);
-        if (!$client->connect($config['host'], $config['port'], 0.5))
+//        $config = app('config')->get('service.'.$this->service);
+        $proxy = app('rpc_proxy')->selectService($this->service);
+        p($proxy, "获取proxy");
+        if (!$client->connect($proxy['host'], $proxy['port'], 0.5))
         {
             return false;
         }

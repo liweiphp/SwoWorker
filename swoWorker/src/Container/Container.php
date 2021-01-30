@@ -24,8 +24,6 @@ class Container
         }
 
         if (!$this->has($abstract)) {
-            // 如果不存在自行
-            // 选择返回, 可以抛出一个异常
             throw new \Exception('没有找到这个容器对象'.$abstract, 500);
         }
 
@@ -33,21 +31,21 @@ class Container
         // 在这个容器中是否存在
         // 1. 判断是否一个为对象
         // 2. 闭包的方式
-        if ($object instanceof Closure || is_callable($object)) {
+        if ($object instanceof \Closure) {
             return $object();
         }
 
         // 3. 类对象的字符串 (类的地址)
         return $this->instances[$abstract] = (is_object($object)) ? $object :  new $object(...$parameters) ;
     }
-    // 判断是否在容器中
-    // 1. 容器很多便于扩展
-    // 2. 可能在其他场景中会用到
+
     public function has($abstract)
     {
         return isset($this->bindings[$abstract]);
     }
-    // 单例创建
+    /**
+     * 单例
+     */
     public static function getInstance()
     {
         if (is_null(static::$instance)) {

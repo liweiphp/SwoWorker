@@ -6,10 +6,11 @@
  * Time: 18:27
  */
 namespace app\Rpc\Client;
+use SwoWorker\Rpc\ConsulClient;
 use SwoWorker\Rpc\RpcClient;
 
 class TestClient extends RpcClient
 {
-    protected $service = 'test';
+    protected $service = 'order';
     protected $class = 'app\Rpc\Service\TestRpc';
 }

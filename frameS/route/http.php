@@ -14,5 +14,7 @@ Route::get('/index', function (){
 
 Route::get('/rpc1', "IndexController@rpcClient1");
 Route::get('/rpc2', "IndexController@rpcClient2");
+Route::get('/consul', "IndexController@getService");
+
 
 Route::get('test', 'IndexController@index');

@@ -3,7 +3,10 @@ return [
     'xxx' => 'ooo',
     'providers' => [
         app\Providers\RouteServiceProvider::class,
-        \SwoWorker\Event\EventServiceProvider::class
+        app\Providers\RpcServiceProvider::class,
+        \SwoWorker\Consul\ConsulServiceProvider::class,
+        \SwoWorker\Event\EventServiceProvider::class,
+
 
     ],
 

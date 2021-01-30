@@ -28,4 +28,11 @@ class IndexController
         $result = (new TestClient())->hello();
         return  $result;
     }
+
+    public function getService()
+    {
+        $agent = app('consul_agent')->getService('order');
+        p($agent, '服务返回结果');
+        return $agent;
+    }
 }

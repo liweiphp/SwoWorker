@@ -14,14 +14,19 @@ return [
     'rpc' => [
         'enable' => true,
         'server' => [
-        'host' => '0.0.0.0',
-        'port' => 9800,
-        'type' => SWOOLE_SOCK_TCP
+            'host' => '0.0.0.0',
+            'port' => 9800,
+            'type' => SWOOLE_SOCK_TCP
         ],
         'swoole' => [
 
         ],
-    ]
+    ],
+
+    'consul' => [
+        'host' => '192.168.56.102',
+        'port' => 8500
+    ],
 
 
 ];

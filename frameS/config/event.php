@@ -9,6 +9,6 @@
 return [
     'Listner' => [
         app\Listners\StartListner::class,
-        app\EventListner::class
+        app\Listners\StopListner::class
     ],
 ];

@@ -55,7 +55,7 @@ class Application extends Container
 
                 p('start server');
                 self::setInstance($this);
-                p($config->get('server.http.host'), '启动地址');
+                p($config->get('server.http.host').':'.$config->get('server.http.port'), '启动http');
                 $this->server = new httpServer(self::getInstance(), $config->get('server.http.host'), $config->get('server.http.port'));
                 if ($config->get('server.rpc.enable')) {
                     p('启动rpc');

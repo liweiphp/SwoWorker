@@ -22,6 +22,7 @@ class RpcServer
     }
     public function run(){
         $config = $this->app->make('config')->get('server.rpc');
+        p($config['server']['host'].':'.$config['server']['port'], '启动rpc');
         $this->listener = $this->server->listen($config['server']['host'], $config['server']['port'], $config['server']['type']);
         $this->initEvent();
         $this->listener->set($config['swoole']);
