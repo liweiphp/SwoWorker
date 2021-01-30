@@ -20,4 +20,4 @@ swoole frameworker
 
 1.rpc server
 
-![./images/consul.jpg]
+![consul集成流程](./images/consul.jpg)
