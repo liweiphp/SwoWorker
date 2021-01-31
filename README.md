@@ -18,4 +18,10 @@ swoole frameworker
 
 三.微服务支持
 
-1.rpc server
+1.rpc 
+1.1 server
+1.2 client
+
+2.集成consul
+
+![consul集成流程](./images/consul.jpg)
