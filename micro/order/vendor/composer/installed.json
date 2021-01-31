@@ -1,0 +1,40 @@
+{
+    "packages": [
+        {
+            "name": "lwphp/swo-worker",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../swoWorker",
+                "reference": "e03d98c9aa79b8c18457f1c9d5d69ffdbc1cb5a6"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "SwoWorker\\": "./src/"
+                },
+                "files": [
+                    "src/Helper/functions.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "liwei",
+                    "email": "liweiphp@163.com"
+                }
+            ],
+            "description": "swoole worker",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../lwphp/swo-worker"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

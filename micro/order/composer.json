@@ -1,0 +1,26 @@
+{
+    "name": "lwphp/frame-s",
+    "description": "swoole framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wei Li",
+            "email": "liwei16@xin.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app/"
+        }
+    },
+    "require": {
+        "lwphp/swo-worker": "master-dev"
+    },
+    "repositories": {
+        "lwphp": {
+            "type": "path",
+            "url": "../swoWorker"
+        }
+    }
+}

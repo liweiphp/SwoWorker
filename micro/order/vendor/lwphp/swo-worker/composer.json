@@ -1,0 +1,20 @@
+{
+    "name": "lwphp/swo-worker",
+    "description": "swoole worker",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "liwei",
+            "email": "liweiphp@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SwoWorker\\": "./src/"
+        },
+        "files": [
+            "src/Helper/functions.php"
+        ]
+    },
+    "require": {}
+}

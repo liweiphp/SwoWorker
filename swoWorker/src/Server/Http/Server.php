@@ -8,6 +8,7 @@
 
 namespace SwoWorker\Server\Http;
 use SwoWorker\Message\Http\Request;
+use SwoWorker\Message\Response;
 use SwoWorker\Route\Route;
 use SwoWorker\Server\ServerBase;
 
@@ -47,7 +48,7 @@ class Server extends ServerBase
         $data = Route::getInstance()->match('http', $httpRequest);
 
         p($this->app->make("config")->get("app"),"config info");
-        $response->end($data);
+        $response->end(Response::send($data));
     }
 
 }

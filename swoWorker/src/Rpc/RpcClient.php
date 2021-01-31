@@ -30,7 +30,7 @@ class RpcClient
             return false;
         }
         $client->send(Response::send($data));
-        $result = $client->recv();
+        $result = $client->recv(5);
         $client->close();
         return $result;
     }

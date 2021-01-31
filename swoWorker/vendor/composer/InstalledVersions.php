@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '550b4ca6ca9d91a214a28dd33f10b4232e17f433',
+    'reference' => '2077c8e7086e02f4aef4a69074545b72fd3697d9',
     'name' => 'lwphp/swo-worker',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '550b4ca6ca9d91a214a28dd33f10b4232e17f433',
+      'reference' => '2077c8e7086e02f4aef4a69074545b72fd3697d9',
     ),
   ),
 );
