@@ -69,13 +69,9 @@ class MysqlPool
     {
         try {
             $pdo = $this->pool->get();
-            $result = $pdo->query($sql)->fetch();
-            $data = [];
-            foreach($result as $key => $value){
-                $data[] = $value;
-            }
+            $result = $pdo->query($sql)->fetchall();
             $this->pool->put($pdo);
-            return $data;
+            return $result;
         } catch (PDOException  $e) {
             $this->pool->put(null);
             return $e->getMessage();

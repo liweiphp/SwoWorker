@@ -46,8 +46,6 @@ class Server extends ServerBase
 
         $httpRequest = Request::getInstance()->init($request);
         $data = Route::getInstance()->match('http', $httpRequest);
-
-        p($this->app->make("config")->get("app"),"config info");
         $response->end(Response::send($data));
     }
 

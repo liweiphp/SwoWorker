@@ -19,7 +19,6 @@ abstract class ServerBase
     protected $port = '9999';
     protected $app;
     protected $serverConfig = [
-        'worker_num' => 1,
         'task_worker_num' => 0
     ];
     protected $serverEvents = [
