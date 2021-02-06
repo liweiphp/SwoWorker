@@ -8,12 +8,14 @@
 namespace app\http\Controller;
 
 use app\Rpc\Client\TestClient;
+use SwoWorker\Database\DB;
 
 class IndexController
 {
     public function index()
     {
-        return "i am indexController";
+        $data = DB::query('select count(*) from thread');
+        return $data;
     }
 
     public function rpcClient1()

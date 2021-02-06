@@ -6,6 +6,7 @@ return [
         app\Providers\RpcServiceProvider::class,
         \SwoWorker\Consul\ConsulServiceProvider::class,
         \SwoWorker\Event\EventServiceProvider::class,
+        \SwoWorker\Database\DbServiceProvider::class,
 
 
     ],
