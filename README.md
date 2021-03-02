@@ -2,7 +2,7 @@
 swoole frameworker
 
 
-基于swoole的php轻量级框架
+基于swoole的php轻量级微服务框架
 
 一.驱动
 
