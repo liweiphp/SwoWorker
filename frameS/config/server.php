@@ -8,7 +8,8 @@
 return [
     'http' => [
         'host' => '192.168.56.102',
-        'port' => 9900
+        'port' => 9900,
+        'pid_file' => file_path("swowork_pid")
     ],
 
     'rpc' => [

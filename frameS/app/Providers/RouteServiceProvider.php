@@ -24,4 +24,12 @@ class RouteServiceProvider extends ServiceProvider
             'path' => $this->app->getBasePath().'/route/http.php'
         ];
     }
+
+    public function setWebsocketRoute()
+    {
+        $this->map["websocket"] = [
+            'namespace' => 'app\WebSocket\Controller',
+            'path' => $this->app->getBasePath().'/route/websocket.php'
+        ];
+    }
 }

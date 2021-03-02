@@ -31,3 +31,13 @@ if (!function_exists('p')) {
         Log::p($message, $description);
     }
 }
+
+if (!function_exists('base_path')) {
+    /**
+     * 返回工作目录
+     */
+    function file_path($path)
+    {
+        return app()->getBasePath().($path ? DIRECTORY_SEPARATOR.$path : $path);
+    }
+}

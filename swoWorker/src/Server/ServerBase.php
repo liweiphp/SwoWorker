@@ -11,6 +11,7 @@ namespace SwoWorker\Server;
 use SwoWorker\Config\Config;
 use SwoWorker\Foundation\Application;
 use SwoWorker\Support\Log;
+use swoole\Process;
 
 abstract class ServerBase
 {
@@ -29,6 +30,8 @@ abstract class ServerBase
         'sub' => [],
         'ext' => []
     ];
+    const SHUTDOWN = 15;
+    const RELOAD = 30;
     public function __construct(Application $app, $host, $port)
     {
         $this->host = $host;
@@ -62,6 +65,17 @@ abstract class ServerBase
     }
 
     /**
+     * 关闭server
+     */
+    public static function shutdown()
+    {
+        $pid_file = app('config')->get('server.http.pid_file');
+        $pid = file_get_contents($pid_file);
+        Process::kill($pid, self::SHUTDOWN);
+    }
+
+
+    /**
      * start事件
      * @throws \Exception
      */
@@ -69,6 +83,11 @@ abstract class ServerBase
     {
         $this->app->make('event')->trigger('swoole_start');
         Log::p($this->host.":".$this->port, "服务启动");
+
+        //写入进程号
+        $pid_file = $this->app->make('config')->get('server.http.pid_file');
+        p($pid_file, "获取pid_file");
+        file_put_contents($pid_file, $this->swooleServer->master_pid);
     }
 
     /**

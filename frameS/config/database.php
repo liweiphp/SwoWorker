@@ -16,7 +16,7 @@ return [
         'dbname' => 'test',
         'charset' => 'utf8',
         'pool' => [
-            'size' => 10
+            'size' => 50
         ]
     ],
 ];

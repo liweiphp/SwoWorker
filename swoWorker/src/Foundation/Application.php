@@ -48,32 +48,36 @@ class Application extends Container
     public function run($argv)
     {
         Log::p($argv);
-
         $config = $this->make('config');
         switch ($argv[1]){
             case "start":
 
-                p('start server');
-                self::setInstance($this);
+                p('http server start');
                 p($config->get('server.http.host').':'.$config->get('server.http.port'), '启动http');
                 $this->server = new httpServer(self::getInstance(), $config->get('server.http.host'), $config->get('server.http.port'));
                 if ($config->get('server.rpc.enable')) {
-                    p('启动rpc');
                     (new RpcServer($this, $this->server->getSwooleServer()))->run();
                 }
                 $this->server->start();
 
                 break;
+            case "stop":
+
+                p("http server stop");
+                httpServer::shutdown();
+
         }
-
-
-
 
 
     }
 
+    /**
+     * 启动驱动
+     */
     public function bootstrap()
     {
+        //设置单例
+        self::setInstance($this);
         foreach ($this->bootstraps as $bootstrap){
             p($bootstrap, '启动加载服务');
             (new $bootstrap())->bootstrap($this);
